@@ -1,16 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Header from "../Header";
-import CallLogList from "./CallLogList";
 import Menu from "../Menu"
 
 
-const CallLog = ({navigation}) => {
+const CallLogList = () => {
   return (
     <View style={styles.container}>
-      <Header recents={true}/>
-      <CallLogList />
-      <Menu navigation={navigation}/>
+      <Text style={styles}>
+        WSDFGHJKHGFDG
+      </Text>
     </View>
   )
 }
@@ -21,4 +20,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CallLog
+export default CallLogList

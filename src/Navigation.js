@@ -1,8 +1,8 @@
 import React from "react";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
 import Dialer from "./dialer";
-import Recents from "./recents";
-import Contacts from "./contacts";
+import CallLog from "./recents";
+import Contact from "./contacts";
 
 
 const SwitchNavigator = createSwitchNavigator(
@@ -11,9 +11,10 @@ const SwitchNavigator = createSwitchNavigator(
             screen: Dialer
         },
         Recents: {
-            screen: Recents        },
-        Contacts: {
-            screen: Contacts
+            screen: CallLog
+        },
+        Contact: {
+            screen: Contact
         }
     },
     {

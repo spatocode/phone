@@ -1,20 +1,32 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet } from 'react-native';
+import Contacts from 'react-native-contacts';
+import ContactList from "./ContactList";
 import Menu from "../Menu"
 
 
-export default class Contacts extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Menu navigation={this.props.navigation}/>
-            </View>
-        )
-    }
+const Contact = ({navigation}) => {
+  const [contacts, setContacts] = useState([]);
+  useEffect(() => {
+    Contacts.getAll()
+    .then(contacts => {
+      setContacts(contacts)
+    })
+    .catch(err => console.error(err))
+  }, [])
+
+  return (
+    <View style={styles.container}>
+      <ContactList contacts={contacts} />
+      <Menu navigation={navigation} />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#F5FCFF',
-    }
+  container: {
+    backgroundColor: '#F5FCFF',
+  },
 })
+
+export default Contact
